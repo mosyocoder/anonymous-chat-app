@@ -9,7 +9,7 @@ const httpLink = createHttpLink({
 
 const wsLink = new GraphQLWsLink(
 	createClient({
-		url: `ws://${process.env.REACT_APP_HASURA_LINK}v1/graphql`,
+		url: `wss://${process.env.REACT_APP_HASURA_LINK}v1/graphql`,
 		connectionParams: {
 			headers: {
 				"x-hasura-admin-secret": process.env.REACT_APP_X_HASURA_ADMIN_SECRET,
