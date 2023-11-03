@@ -1,11 +1,11 @@
 import { gql } from "@apollo/client";
 
 export const GET_ALL_MESSAGES = gql`
-	query getAllMessages {
+	subscription getAllMessages {
 		messages {
 			id
 			message
-			username
+			user_key
 		}
 	}
 `;

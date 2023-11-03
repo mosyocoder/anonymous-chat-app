@@ -1,14 +1,18 @@
-import { useQuery } from "@apollo/client";
-import { GET_ALL_MESSAGES } from "./queries";
+import "./index.css";
+import { regUser } from "./helpers/reg";
+import MessageArea from "./components/MessageArea";
+import SendMessage from "./components/SendMessage";
 
 function App() {
-	const { loading, error, data } = useQuery(GET_ALL_MESSAGES);
+	regUser();
+	return (
+		<div className="container">
+			<h1>Anonymous Chat App</h1>
+			<MessageArea />
 
-	console.log("loading", loading);
-	console.log("error", error);
-	console.log("data", data);
-
-	return <div>deneme</div>;
+			<SendMessage />
+		</div>
+	);
 }
 
 export default App;
