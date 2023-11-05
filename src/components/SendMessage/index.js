@@ -4,12 +4,12 @@ import axios from "axios";
 function SendMessage() {
 	const [message, setMessage] = useState("");
 
-	const sendMessage = async (e) => {
-		if (e.code === "Enter") {
+	const sendMessage = async () => {
+		
 			const data = {
 				message: message,
 				user_key: localStorage.getItem("anonymous_chat_app"),
-			};
+			}
 			try {
 				await axios.post(
 					`https://${process.env.REACT_APP_HASURA_LINK}api/rest/addmessage`,
@@ -30,8 +30,9 @@ function SendMessage() {
 	};
 
 	return (
-		<div className="inputArea" onKeyUp={(e) => sendMessage(e)}>
+		<div className="inputArea">
 			<input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Enter your message" />
+		 <button onClick={()=>sendMessage()}>send</button>
 		</div>
 	);
 }
